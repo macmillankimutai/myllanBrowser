@@ -80,11 +80,6 @@ class Components(
                 SimpleBrowserMenuItem("Clear Data") {
                     sessionUseCases.clearData.invoke()
                 },
-                SimpleBrowserMenuItem("VlC"){
-                  //  Toast.makeText(applicationContext, "vlc",Toast.LENGTH_SHORT).show()
-                    //val vlcIntent = Intent(Intent.ACTION_VIEW)
-                   // startActivity(applicationContext, vlcIntent)
-                },
                 SimpleBrowserMenuCheckbox("Request desktop site") { checked ->
                     sessionUseCases.requestDesktopSite.invoke(checked)
                 }

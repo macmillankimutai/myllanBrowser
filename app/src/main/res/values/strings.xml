@@ -6,4 +6,5 @@
     <string name="app_name">Reference Browser</string>
 
     <string name="menu_action_add_tab">Add New Tab</string>
+    <string name="vlc">Open vlc</string>
 </resources>
