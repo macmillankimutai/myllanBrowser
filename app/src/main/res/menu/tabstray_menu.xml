@@ -8,5 +8,6 @@
         android:id="@+id/newTab"
         android:icon="@drawable/mozac_ic_tab_new"
         android:title="@string/menu_action_add_tab"
+        android:background="#656D78"
         app:showAsAction="ifRoom" />
 </menu>

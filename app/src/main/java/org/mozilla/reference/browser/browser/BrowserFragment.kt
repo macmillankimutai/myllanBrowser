@@ -51,6 +51,7 @@ class BrowserFragment : Fragment(), BackHandler {
         }
     }
 
+
     override fun onStart() {
         super.onStart()
 

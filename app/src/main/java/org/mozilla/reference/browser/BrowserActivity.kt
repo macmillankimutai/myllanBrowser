@@ -4,12 +4,18 @@
 
 package org.mozilla.reference.browser
 
+import android.annotation.SuppressLint
 import android.content.ComponentCallbacks2
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.util.AttributeSet
 import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_browser.*
 import mozilla.components.browser.tabstray.BrowserTabsTray
 import mozilla.components.concept.engine.EngineView
 import mozilla.components.concept.tabstray.TabsTray
@@ -19,9 +25,11 @@ import org.mozilla.reference.browser.browser.BrowserFragment
 import org.mozilla.reference.browser.ext.components
 
 open class BrowserActivity : AppCompatActivity(), ComponentCallbacks2 {
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         if (savedInstanceState == null) {
             val sessionId = SafeIntent(intent).getStringExtra(IntentProcessor.ACTIVE_SESSION_ID)
@@ -29,6 +37,11 @@ open class BrowserActivity : AppCompatActivity(), ComponentCallbacks2 {
                 replace(R.id.container, BrowserFragment.create(sessionId))
                 commit()
             }
+        }
+        button.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("market://details?id=VLC")
+            startActivity(intent)
         }
     }
 

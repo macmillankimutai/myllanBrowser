@@ -5,6 +5,9 @@
 package org.mozilla.reference.browser
 
 import android.content.Context
+import android.content.Intent
+import android.content.pm.ResolveInfo
+import android.support.v4.content.ContextCompat.startActivity
 import android.widget.Toast
 import kotlinx.coroutines.experimental.async
 import mozilla.components.browser.menu.BrowserMenuBuilder
@@ -76,6 +79,11 @@ class Components(
                 },
                 SimpleBrowserMenuItem("Clear Data") {
                     sessionUseCases.clearData.invoke()
+                },
+                SimpleBrowserMenuItem("VlC"){
+                  //  Toast.makeText(applicationContext, "vlc",Toast.LENGTH_SHORT).show()
+                    //val vlcIntent = Intent(Intent.ACTION_VIEW)
+                   // startActivity(applicationContext, vlcIntent)
                 },
                 SimpleBrowserMenuCheckbox("Request desktop site") { checked ->
                     sessionUseCases.requestDesktopSite.invoke(checked)
